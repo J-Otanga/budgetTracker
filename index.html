@@ -1,122 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Tracker</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    <div id="login-section" class="auth-container">
-        <h2>Login to Budget Tracker</h2>
-        <form id="login-form" class="auth-form" method="post" action="login.php">
-            <input type="email" id="login-email" name="email" placeholder="Email" required>
-            <input type="password" id="login-password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+
+<!-- LOGIN SECTION -->
+<div id="login-section" class="auth-container">
+  <h2>Login to Budget Tracker</h2>
+  <form id="login-form" class="auth-form" method="post" action="login.php">
+    <input type="email" id="login-email" name="email" placeholder="Email" required>
+    <input type="password" id="login-password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+</div>
+
+<!-- REGISTER SECTION -->
+<div id="register-section" class="auth-container hidden">
+  <h2>Create Account</h2>
+  <form id="register-form" class="auth-form" method="post" action="register.php">
+    <input type="text" id="register-name" name="name" placeholder="Full Name" required>
+    <input type="email" id="register-email" name="email" placeholder="Email" required>
+    <input type="password" id="register-password" name="password" placeholder="Password" required>
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+</div>
+
+<!-- MAIN APP SECTION -->
+<div id="app-section" class="hidden">
+  <div class="container">
+    <header class="app-header">
+      <h1>Budget Tracker</h1>
+      <div class="user-info">
+        <span id="user-name"></span>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <!-- BALANCE -->
+    <div class="balance-container">
+      <h2>Current Balance</h2>
+      <h3 id="balance">KSh0.00</h3>
     </div>
 
-    <div id="register-section" class="auth-container hidden">
-        <h2>Create Account</h2>
-        <form id="register-form" class="auth-form" method="post" action="register.php">
-            <input type="text" id="register-name" name="name" placeholder="Full Name" required>
-            <input type="email" id="register-email" name="email" placeholder="Email" required>
-            <input type="password" id="register-password" name="password" placeholder="Password" required>
-            <button type="submit">Register</button>
-        </form>
-        <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+    <!-- SUMMARY -->
+    <div class="summary">
+      <div class="income">
+        <h4>Income</h4>
+        <p id="income-amount">KSh0.00</p>
+      </div>
+      <div class="expense">
+        <h4>Expense</h4>
+        <p id="expense-amount">KSh0.00</p>
+      </div>
     </div>
 
-  
-    <div id="app-section" class="hidden">
-        <div class="container">
-            <header class="app-header">
-                <h1>Budget Tracker</h1>
-                <div class="user-info">
-                    <span id="user-name"></span>
-                    <button id="logout-btn">Logout</button>
-                </div>
-            </header>
-            
-            <div class="balance-container">
-                <h2>Current Balance</h2>
-                <h3 id="balance">KSh0.00</h3>
-            </div>
-
-            <div class="summary">
-                <div class="income">
-                    <h4>Income</h4>
-                    <p id="income-amount">KSh0.00</p>
-                </div>
-                <div class="expense">
-                    <h4>Expense</h4>
-                    <p id="expense-amount">KSh0.00</p>
-                </div>
-            </div>
-
-            
-            <div class="budget-section">
-                <h3>Monthly Budget</h3>
-                <div id="budget-categories">
-                    
-                </div>
-                <button id="add-category-btn">Add Category</button>
-            </div>
-
-            <form id="transaction-form">
-                <input type="text" id="description" placeholder="Description" required>
-                <select id="category" required>
-                    <option value="">Select Category</option>
-                </select>
-                <input type="number" id="amount" placeholder="Amount" required>
-                <input type="date" id="date" required>
-                <select id="type" required>
-                    <option value="expense">Expense</option>
-                    <option value="income">Income</option>
-                </select>
-                <select id="recurrence">
-                    <option value="one-time">One-time</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="weekly">Weekly</option>
-                </select>
-                <button type="submit">Add Transaction</button>
-            </form>
-
-            
-            <div class="savings-section">
-                <h3>Savings Goals</h3>
-                <div id="savings-goals">
-                  
-                </div>
-                <button id="add-goal-btn">Add Savings Goal</button>
-            </div>
-
-            <div class="transactions">
-                <h3>Transaction History</h3>
-                <div class="transaction-filters">
-                    <select id="filter-category">
-                        <option value="">All Categories</option>
-                    </select>
-                    <select id="filter-type">
-                        <option value="">All Types</option>
-                        <option value="expense">Expenses</option>
-                        <option value="income">Income</option>
-                    </select>
-                    <input type="date" id="filter-date-start">
-                    <input type="date" id="filter-date-end">
-                </div>
-                <ul id="transaction-list">
-                    
-                </ul>
-            </div>
-        </div>
+    <!-- CHART -->
+    <div class="chart-section">
+      <h3>Income vs Expenses Chart</h3>
+      <canvas id="budgetChart"></canvas>
     </div>
 
-    
-    <div id="notification-container"></div>
+    <!-- BUDGET CATEGORIES -->
+    <div class="budget-section">
+      <h3>Monthly Budget</h3>
+      <div id="budget-categories"></div>
+      <button id="add-category-btn">Add Category</button>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- TRANSACTION FORM -->
+    <form id="transaction-form">
+      <input type="text" id="description" placeholder="Description" required>
+      <select id="category" required>
+        <option value="">Select Category</option>
+      </select>
+      <input type="number" id="amount" placeholder="Amount" required>
+      <input type="date" id="date" required>
+      <select id="type" required>
+        <option value="expense">Expense</option>
+        <option value="income">Income</option>
+      </select>
+      <select id="recurrence">
+        <option value="one-time">One-time</option>
+        <option value="monthly">Monthly</option>
+        <option value="weekly">Weekly</option>
+      </select>
+      <button type="submit">Add Transaction</button>
+    </form>
+
+    <!-- SAVINGS GOALS -->
+    <div class="savings-section">
+      <h3>Savings Goals</h3>
+      <div id="savings-goals"></div>
+      <button id="add-goal-btn">Add Savings Goal</button>
+    </div>
+
+    <!-- TRANSACTION HISTORY -->
+    <div class="transactions">
+      <h3>Transaction History</h3>
+      <div class="transaction-filters">
+        <select id="filter-category">
+          <option value="">All Categories</option>
+        </select>
+        <select id="filter-type">
+          <option value="">All Types</option>
+          <option value="expense">Expenses</option>
+          <option value="income">Income</option>
+        </select>
+        <input type="date" id="filter-date-start">
+        <input type="date" id="filter-date-end">
+      </div>
+      <ul id="transaction-list"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div id="notification-container"></div>
+
+<!-- CHART.JS LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script src="script.js"></script>
 </body>
 </html>
