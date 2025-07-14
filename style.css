@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 350px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.balance {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.inc-exp-container > div {
+  text-align: center;
+  width: 48%;
+}
+
+.money {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.plus {
+  color: green;
+}
+
+.minus {
+  color: red;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.list li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 5px 0;
+  border-right: 5px solid;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+}
+
+.list li.plus {
+  border-color: green;
+}
+
+.list li.minus {
+  border-color: red;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #005fa3;
+}
