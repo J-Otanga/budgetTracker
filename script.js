@@ -189,7 +189,7 @@ function addToSavings(index) {
 
 addGoalBtn.addEventListener('click', () => {
     const goalName = prompt("Enter savings goal name:");
-    const targetAmount = parseFloat(prompt("Enter target amount (Ksh):"));
+    const targetAmount = parseFloat(prompt("Enter target amount (KSh):"));
 
     if (!goalName || isNaN(targetAmount) || targetAmount <= 0) {
         alert("Invalid input. Please enter a valid name and positive amount.");
